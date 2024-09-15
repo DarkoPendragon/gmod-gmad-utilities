@@ -1,0 +1,12 @@
+{
+    "gmad": {
+        "steam_api_key": "KEY",
+        "zip_location": "C:/Program Files/7-Zip",
+        "workshop_folder": "C:/Program Files (x86)/Steam/steamapps/workshop/content/4000"
+    },
+
+    "items": {
+        "price": 1000,
+        "addons_folder": "C:/Program Files (x86)/Steam/steamapps/common/GarrysModgarrysmod/addons"
+    }
+}

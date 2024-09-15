@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "node-fetch": "^2.0.0"
+  },
+  "name": "gmod-gmad-and-pointshop",
+  "version": "1.0.0",
+  "description": "Extract addons and create pointshop model files",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Darko Pendragon",
+  "license": "ISC"
+}
