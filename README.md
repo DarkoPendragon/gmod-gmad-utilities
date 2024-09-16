@@ -1,5 +1,5 @@
 # Gmod Utilities
-These are just a few scripts I've made to make my life easier while creating a Gmod server. What they each do is listed below, but the 2 first scripts will let you extract your all your Gmod addons (both .gma and .bin files), and the other will let you create pointshop item files from all playermodels found in an addons folder.
+These are just a few scripts I've made to make my life easier while creating a Gmod server. What they each do is listed below, but the 2 first scripts will let you extract all your Gmod addons (both .gma and .bin files), and the other will let you create pointshop item files from all playermodels found in an addons folder.
 
 # Requirements
 * Copy of Garry's Mod
