@@ -1,13 +1,20 @@
 const fetch = require('node-fetch')
 const fs = require('fs')
 const exec = require('child_process').exec;
-const path = require('path')
 const config = require('./config.json')
 
 const steamapi_key = config.gmad.steam_api_key; // https://api.steampowered.com/IPublishedFileService/GetDetails/v1/
 const workshop_folder = config.gmad.workshop_folder;
 const zip_location = config.gmad.zip_location
-const output_folder = path.join(__dirname, "/output_gmad");
+const output_folder = `${__dirname}/output_gmad`;
+
+fs.access(output_folder, fs.constants.F_OK, (err) => {
+  if (err) {
+    fs.mkdir(output_folder, (err) => {
+    	console.log(`Created output folder (didn't exist)`)
+    })
+  }
+})
 
 async function toGma(path, file) {
 	console.log(`	Converting ${file} to .gma...`)

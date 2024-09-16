@@ -5,6 +5,14 @@ var price = config.items.price;
 var folder = config.items.addons_folder;
 var output = `${__dirname}/output`;
 
+fs.access(output, fs.constants.F_OK, (err) => {
+  if (err) {
+    fs.mkdir(output, (err) => {
+    	console.log(`Created output folder (didn't exist)`)
+    })
+  }
+})
+return;
 (async () => {
 	var folders = fs.readdirSync(folder)
 	var baseFile = fs.readFileSync(__dirname + "/base.txt", 'utf8')
