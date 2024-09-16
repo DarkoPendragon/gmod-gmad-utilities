@@ -32,9 +32,10 @@ async function toGma(path, file) {
 	})
 };
 
-(async () => {
-	var folders = fs.readdirSync(workshop_folder)
-	var total = 0;
+fs.readdir(workshop_folder, (err, files) => {
+	var folders = files
+	var total = 0
+	const max = folders.length
 
 	console.log(`Starting gmad extraction with ${folders.length} total addons`)
 
@@ -58,12 +59,12 @@ async function toGma(path, file) {
 
 		// gmad.exe extract -file "C:\steam\etc\garrysmod\addons\my_addon_12345.gma" -out "C:\this\folder"
 		console.log(`	Extracting: ${shopInfo.title}`)
-		exec(`gmad.exe extract -file "${workshop_folder.replaceAll("/", "\\")}\\${x}\\${file}" -out "${output_folder.replaceAll("/", "\\")}\\${shopInfo.title.replaceAll(/(\?|!| |/)/g, "_")}"`, (err, data) => {
-	        if (err) console.log(`\n${file}: ERROR: ${err.stack ?? err}\n`)
-	        else console.log(`${file}: DONE (${total + 1})\n`);
+		exec(`gmad.exe extract -file "${workshop_folder.replaceAll("/", "\\")}\\${x}\\${file}" -out "${output_folder.replaceAll("/", "\\")}\\${shopInfo.title.replaceAll(/(\?|!| |\/|:|\\|\*|\>|\<|\"|\`|\'|\|)/g, "_")}"`, (err, data) => {
+	        if (err) console.log(`\n${file}: ERROR (${total + 1}/${max}): ${err.stack ?? err}\n`)
+	        else console.log(`${file}: DONE (${total + 1}/${max})\n`);
 	    	total++;
 	    	doNext()
 	    });	
 	}
 	doNext()
-})()
+})

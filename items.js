@@ -11,8 +11,8 @@ fs.access(output, fs.constants.F_OK, (err) => {
     	console.log(`Created output folder (didn't exist)`)
     })
   }
-})
-return;
+});
+
 (async () => {
 	var folders = fs.readdirSync(folder)
 	var baseFile = fs.readFileSync(__dirname + "/base.txt", 'utf8')
